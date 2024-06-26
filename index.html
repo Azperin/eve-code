@@ -3,19 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark">
 <title>TITLE</title>
 </head>
 <body>
-	<header>
-		<div></div>
-	</header>
-	<main>hi</main>
-	<footer>
-		<div></div>
-	</footer>
 <script>
-window.parent.postMessage("hello", "*");
+window.opener.postMessage(new URL(document.location).searchParams.get("code") ?? '', "*");
 </script>
 </body>
 </html>

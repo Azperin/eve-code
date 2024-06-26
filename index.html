@@ -6,8 +6,11 @@
 <title>TITLE</title>
 </head>
 <body>
+<div id="code"></div>
 <script>
-window.opener.postMessage(new URL(document.location).searchParams.get("code") ?? '', "*");
+const code = new URL(document.location).searchParams.get("code") ?? '';
+document.getElementById('code').textContent = code;
+window.opener?.postMessage(code, "*");
 </script>
 </body>
 </html>

@@ -8,9 +8,16 @@
 <body>
 <div id="code"></div>
 <script>
-const code = new URL(document.location).searchParams.get("code") ?? '';
-document.getElementById('code').textContent = code;
-window.opener?.postMessage(code, "*");
+let code;
+if (location.hash) {
+	code = access_token = location.hash.split('&').filter(x => x.startsWith('access_token')).at(0).replace('access_token=', '');
+} else {
+	code = new URL(document.location).searchParams.get("code") ?? '';
+};
+
+if (code) {
+	window.opener?.postMessage(code, "*");
+};
 </script>
 </body>
 </html>
